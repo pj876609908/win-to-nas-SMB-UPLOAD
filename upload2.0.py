@@ -13,8 +13,8 @@ logger = logging.getLogger()
 # SMB 连接配置
 smb_server_ip = "10.0.0.125"
 smb_share_name = "Movie"
-smb_username = ""
-smb_password = ""
+smb_username = "p"
+smb_password = "2020"
 smb_conn = SMBConnection(smb_username, smb_password, "client", "nas", use_ntlm_v2=True)
 smb_conn.connect(smb_server_ip)
 # 添加访问成功提示
@@ -22,10 +22,7 @@ logger.info(f"成功连接到 SMB 服务器 {smb_server_ip} 的共享文件夹 {
 # 本地目录
 local_path = r"I:\test"
 files = os.listdir(local_path)
-# 添加读取本地文件夹成功提示并列出文件列表
-logger.info(f"成功读取本地文件夹 {local_path}，文件列表如下：")
-for file in files:
-    logger.info(file)
+
 def get_file_size(file_path):
     """获取文件大小"""
     return os.path.getsize(file_path)
